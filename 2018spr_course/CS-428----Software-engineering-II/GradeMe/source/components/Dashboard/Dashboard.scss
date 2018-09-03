@@ -1,0 +1,65 @@
+#theme-blue{
+	background-color: #48E0CD;
+}
+
+#logo{
+	color:#48E0CD !important;
+	font-size: 30px;
+}
+
+.ui.cards {
+    margin-top: 20px;
+}
+
+.add-create {
+	.our-icon{
+		padding-top: 10% !important;
+	    padding-bottom: 10% !important;
+	}
+
+    header {
+        margin-top: 20px;
+    }
+}
+.addClass{
+	width: 50px;
+}
+
+.modalContent{
+	width: 100% !important;
+}
+
+.modalInput{
+	width: 80% !important;
+	margin: 0 auto 0 auto !important;
+	label{
+		max-width: 30% !important;
+	}
+	input{
+		max-width: 70% !important;
+	}
+}
+
+#cards-container {
+    display: flex;
+    justify-content: center !important;
+	margin: 0 auto 0 auto !important;
+}
+
+Card {
+    margin: 10px !important;
+}
+
+.card-element {
+    margin: .875em .5em !important;
+}
+
+.p-10 {
+    padding-right: 5px;
+}
+
+
+#invalid-course-id {
+    text-align: center;
+    margin-top: 10px;
+}

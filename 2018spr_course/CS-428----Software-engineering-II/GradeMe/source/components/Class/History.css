@@ -1,0 +1,31 @@
+/* line 7, /Users/linahsie/clearity/source/components/Class/History.scss */
+.sessions {
+  text-align: center;
+  display: block; }
+  /* line 10, /Users/linahsie/clearity/source/components/Class/History.scss */
+  .sessions .header {
+    margin-left: auto;
+    margin-right: auto; }
+  /* line 14, /Users/linahsie/clearity/source/components/Class/History.scss */
+  .sessions ul {
+    width: 40%;
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0; }
+
+/* line 23, /Users/linahsie/clearity/source/components/Class/History.scss */
+.sessionButton, .currentSession {
+  color: white;
+  width: 100%;
+  margin: 5% auto 0 auto !important;
+  border-radius: 20px !important; }
+
+/* line 27, /Users/linahsie/clearity/source/components/Class/History.scss */
+.currentSession {
+  width: 40%;
+  margin: 1% auto 0 auto !important;
+  border-radius: 20px !important;
+  background-color: #48E0CD !important; }
+
+/*# sourceMappingURL=History.css.map */

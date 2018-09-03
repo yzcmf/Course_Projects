@@ -1,0 +1,29 @@
+@mixin buttonDefault($inputWidth, $marginTop){
+    width: $inputWidth;
+    margin: $marginTop auto 0 auto !important;
+    border-radius: 20px !important;
+}
+
+.sessions{
+    text-align: center;
+    display: block;
+    .header{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    ul{
+        width: 40%;
+        list-style-type: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.currentSession{
+    color: white;
+    width: 40%;
+    margin: 2% auto 2% auto !important;
+    border-radius: 20px !important;
+    background-color: #48E0CD !important;
+}

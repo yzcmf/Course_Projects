@@ -1,0 +1,93 @@
+@mixin containerCommons(){
+    text-align: center;
+    h3{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.questionSection{
+    @include containerCommons;
+    margin: 2% 0 2% 0;
+    .question{
+        font-size: 1.25em;
+        border-radius: 5px !important;
+        width: 80%;
+    }
+    .submit_question{
+        margin: 2% 0;
+        color: white !important;
+        background-color: #48E0CD !important;
+    }
+}
+
+.questionList{
+    @include containerCommons;
+}
+
+.questionsTable{
+    border-radius: 5px !important;
+    max-width: 100% !important;
+}
+
+.tableHeader{
+    text-align: center;
+}
+
+.instructorQuestion{
+    top: 10%;
+    margin: 0 auto 0 auto;
+}
+
+.tabMenu{
+    margin: 0 auto 0 auto;
+    width: 90% !important;
+}
+
+.inactiveHeader{
+    @include containerCommons;
+}
+
+.instQuestion{
+    font-size: 1.25em;
+    border-radius: 5px !important;
+    width: 100%;
+}
+
+.instOption{
+    width: 100%;
+    margin: 1% 0 1% 0;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.instQnArea{
+    width:30%;
+    margin: 0 auto 0 auto;
+    position: relative;
+}
+
+.addOption{
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.upvote{
+    width: 10px !important;
+    height: 10px  !important;
+    margin-left: 5px;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+.courseID{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.class_name{
+    text-align: center;
+    padding-top: 10px;
+}

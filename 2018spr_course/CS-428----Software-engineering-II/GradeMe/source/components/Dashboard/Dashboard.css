@@ -1,0 +1,65 @@
+/* line 1, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+#theme-blue {
+  background-color: #48E0CD; }
+
+/* line 5, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+#logo {
+  color: #48E0CD !important;
+  font-size: 30px; }
+
+/* line 10, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.ui.cards {
+  margin-top: 20px; }
+
+/* line 15, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.add-create .our-icon {
+  padding-top: 10% !important;
+  padding-bottom: 10% !important; }
+
+/* line 20, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.add-create header {
+  margin-top: 20px; }
+
+/* line 24, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.addClass {
+  width: 50px; }
+
+/* line 28, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.modalContent {
+  width: 100% !important; }
+
+/* line 32, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.modalInput {
+  width: 80% !important;
+  margin: 0 auto 0 auto !important; }
+  /* line 35, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+  .modalInput label {
+    max-width: 30% !important; }
+  /* line 38, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+  .modalInput input {
+    max-width: 70% !important; }
+
+/* line 43, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+#cards-container {
+  display: flex;
+  justify-content: center !important;
+  margin: 0 auto 0 auto !important; }
+
+/* line 49, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+Card {
+  margin: 10px !important; }
+
+/* line 53, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.card-element {
+  margin: .875em .5em !important; }
+
+/* line 57, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+.p-10 {
+  padding-right: 5px; }
+
+/* line 62, /Users/linahsie/clearity/source/components/Dashboard/Dashboard.scss */
+#invalid-course-id {
+  text-align: center;
+  margin-top: 10px; }
+
+/*# sourceMappingURL=Dashboard.css.map */

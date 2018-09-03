@@ -1,0 +1,42 @@
+.wrapper-home {
+  height: 100vh;
+  position: relative;
+	background-color: #039be5;
+}
+
+.Home {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100vh;
+	background-color: #039be5;
+	// padding-top: 105px;
+ //    padding-bottom: 180px;
+}
+#Home_content{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#theme-blue{
+	background-color: #48E0CD;
+	color: white;
+}
+#theme-green{
+	background-color: #51D963;
+	color: white;
+}
+#theme-white{
+	background-color: #FFFFFF;
+	color: #3c4e52;	//dark gray
+	border: 1px solid #ccd3db; //light gray
+}
+#title-clearity{
+	font-size: 60px;
+}
+#logo{
+	color:#48E0CD !important;
+	font-size: 30px;
+	font-weight: bold;
+}

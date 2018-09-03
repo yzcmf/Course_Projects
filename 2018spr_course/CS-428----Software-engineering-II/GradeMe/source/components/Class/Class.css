@@ -1,0 +1,89 @@
+/* line 9, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.questionSection {
+  text-align: center;
+  margin: 2% 0 2% 0; }
+  /* line 3, /Users/linahsie/clearity/source/components/Class/Class.scss */
+  .questionSection h3 {
+    margin-left: auto;
+    margin-right: auto; }
+  /* line 12, /Users/linahsie/clearity/source/components/Class/Class.scss */
+  .questionSection .question {
+    font-size: 1.25em;
+    border-radius: 5px !important;
+    width: 80%; }
+  /* line 17, /Users/linahsie/clearity/source/components/Class/Class.scss */
+  .questionSection .submit {
+    margin: 2% 0; }
+
+/* line 22, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.questionList {
+  text-align: center; }
+  /* line 3, /Users/linahsie/clearity/source/components/Class/Class.scss */
+  .questionList h3 {
+    margin-left: auto;
+    margin-right: auto; }
+
+/* line 26, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.questionsTable {
+  border-radius: 5px !important;
+  max-width: 100% !important; }
+
+/* line 31, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.tableHeader {
+  text-align: center; }
+
+/* line 35, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.instructorQuestion {
+  top: 10%;
+  margin: 0 auto 0 auto; }
+
+/* line 40, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.tabMenu {
+  margin: 0 auto 0 auto;
+  width: 90% !important; }
+
+/* line 45, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.inactiveHeader {
+  text-align: center; }
+  /* line 3, /Users/linahsie/clearity/source/components/Class/Class.scss */
+  .inactiveHeader h3 {
+    margin-left: auto;
+    margin-right: auto; }
+
+/* line 49, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.instQuestion {
+  font-size: 1.25em;
+  border-radius: 5px !important;
+  width: 100%; }
+
+/* line 55, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.instOption {
+  width: 100%;
+  margin: 1% 0 1% 0;
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%; }
+
+/* line 63, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.instQnArea {
+  width: 30%;
+  margin: 0 auto 0 auto;
+  position: relative; }
+
+/* line 69, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.addOption {
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%; }
+
+/* line 75, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.upvote {
+  width: 10px !important;
+  height: 10px  !important;
+  margin-left: 5px; }
+
+/* line 81, /Users/linahsie/clearity/source/components/Class/Class.scss */
+.pointer {
+  cursor: pointer !important; }
+
+/*# sourceMappingURL=Class.css.map */
