@@ -1,0 +1,404 @@
+/*
+ ============================================================================
+ Name        : project.c
+ Author      : zyx
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+//Do the sampling and detect the alarming events,this alarming events are divides into two parts
+//One event is for the button-pressed and another event is for the overload and unload and no power of the analog sin wave function
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <asm/io.h>
+#include <rtai.h>
+#include <rtai_sched.h>
+#include <rtai_fifos.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <signal.h>
+#include <arpa/inet.h>
+
+#include <sys/time.h>
+
+#define MSG_SIZE 40		// message size
+
+
+void error(const char *msg)
+{
+	perror(msg);
+	exit(0);
+}
+
+int voltage;//Sampling the voltage through the analog signals and get the digital values
+float real_voltage;//The voltage calculated based on the voltage through the analog signals and get the digital values
+float overload_voltage;//The real voltage based on the analog in the circuit output
+float real_current,real_power;//The current and power in the one RTU
+int button_state[4];//Keep records to the button-pressed states
+
+int fd;//For open a file
+int fifo_0;//For receiving the voltage message from the kernel module
+int fifo_1;//For receiving the button states message from the kernel module
+
+
+int main(int argc, char *argv[]) {
+
+	int i;
+
+	float BUFFER[MSG_SIZE]={0.0};//For the TCP communications
+
+	printf("hello this is the user-space.\n");
+
+	fd=open("/dev/mem",O_RDWR|O_SYNC,0);//For open a file
+	fifo_0= open("/dev/rtf/0", O_RDWR);	//fifo receive voltage message from kernel
+	fifo_1= open("/dev/rtf/1", O_RDWR);	//fifo receive button states message from kernel
+
+
+	/////////////////// For the ADC conversion data processing/////////////////////////
+
+	//	printf("hello this is the ADC part.\n");
+
+	//	while(1)
+	//	//for(i = 0; i < 4000; i++)
+	//	{
+	//	fifo_0=read(fifo_0,&voltage,sizeof(voltage));
+	//
+	//	//printf("The voltage from the kernel:%d\n",voltage);
+	//
+	//	real_voltage=5*((float)voltage/4096);
+	//
+	//	printf("The real voltage:%f\n",real_voltage);
+	//
+	//
+	//	//if(overload_voltage>=3.872070) //let's make the overload voltage to be 3.872070 volts which is corresponding to 3172--board 19
+	//	if(real_voltage>=3.950000)//let's make the overload voltage to be 3.785400 volts which is corresponding to 3101--board 15
+	//	{
+	//
+	//		//Events happened and send the events to the general RTU program
+	//
+	//		overload_voltage=real_voltage;
+	//
+	//		printf("The overload voltage is :%f\n",overload_voltage);
+	//
+	//		BUFFER[0]=1;
+	//
+	//		printf("The BUFFER is :%f\n",BUFFER[0]);
+	//	}
+
+	//	if ((named_pipes = open("named_pipes", O_WRONLY)) < 0)//create the pipes
+	//
+	//			printf("failed to open named pipe\n");
+	//
+	//
+	//		sem_wait(&sem);//wait the sem to come and begin to write to the named pipes one time
+	//
+	//
+	//	if (write(named_pipes, &BUFFER, sizeof(BUFFER)) != sizeof(float*)) //From the "data" structure into the pipe
+	//
+	//			printf("failed to write into named pipe");
+	//
+	//
+	//		sem_post(&sem);//After writing ,send the sem to the next time and begin to write next time datas to the named pipes
+
+
+	//}
+
+	//////////////// ADC conversion data processing has been done ///////////////////////
+
+
+
+
+	////////////////  For the button-pressed section data processing /////////////////////////
+
+
+	//		printf("hello this is the button-pressed part.\n");
+	//
+	//		fifo_1=read(fifo_1,&button_state,sizeof(button_state));
+	//
+	//		for (i=0;i<4;i++)
+	//		{
+	//
+	//			printf("The button %d state from the kernel is:%d\n",i,button_state[i]);
+	//
+	//
+	//			if(button_state[i]==1) //detect the button has been pressed
+	//			{
+	//				//usleep(1000);
+	//
+	//				//Events happened and send the events to the general RTU program
+	//
+	//				//buffer.button_number=i;
+	//				//buffer.button_state=1;
+	//				 BUFFER[2]=(float)i;//use the first bit to store the button state information
+	//				 printf("The buffer we are going to send is:%f\n",BUFFER[2]);
+	//			}
+	//
+	//		}
+
+	//	   fifo_1=read(fifo_1,&button_state,sizeof(button_state));
+	//
+	//		for (i=0;i<4;i++)
+	//		{
+	//			if(button_state[i]==1) //detect the button has been pressed
+	//			{
+	//				BUFFER[2]=i+1;//use the first bit to store the button state information
+	//
+	//			}
+	//
+	//			else
+	//				BUFFER[2]=0;
+	//		}
+	//
+	//		printf("The buffer we are going to send is:%f\n",BUFFER[2]);
+
+	////////////////The button-pressed section data processing has been done /////////////////////////
+
+
+
+	/////////////////// For the TCP communication   //////////////////////////////
+
+
+	int sockfd, portno, n;
+	struct sockaddr_in serv_addr;
+	struct hostent *server;
+
+
+	if (argc < 3)	// not enough arguments
+	{
+		fprintf(stderr,"usage %s hostname port\n", argv[0]);
+		exit(0);
+	}
+
+	portno = atoi(argv[2]);		// port # was an input.
+	sockfd = socket(AF_INET, SOCK_STREAM, 0); // Creates socket. Connection based.
+	if (sockfd < 0)
+		error("ERROR opening socket");
+
+	server = gethostbyname(argv[1]);  // converts hostname input (e.g. 10.3.52.255)
+	if (server == NULL) {
+		fprintf(stderr,"ERROR, no such host\n");
+		exit(0);
+	}
+
+	//get the port number ---RTU number
+
+	char IP[MSG_SIZE];
+
+	struct in_addr ** myIpList;
+
+	myIpList=(struct in_addr**)server->h_addr_list;
+
+	strcpy(IP,inet_ntoa(*myIpList[0]));
+
+	printf("The IP of the machine is :%s\n",IP);
+
+	//printf("The IP of the machine is :%s\n",IP_NAME);
+
+	//Get the last 2 bits of the IP to gain the port number
+
+	char my_port_number_string[40];
+
+	int my_port_number;
+
+	for(i=strlen(IP)-1;i>0;i--)
+	{
+		if(IP[i]=='.')
+
+		{
+			//printf("The i is %d\n",i);
+
+			strcpy(my_port_number_string,IP+i+1);
+
+			break;
+
+		}
+	}
+
+
+	my_port_number=atoi(my_port_number_string);
+
+	printf("My RTU number is:%d\n",my_port_number);
+
+	BUFFER[1]=(float)my_port_number;//pass the RTU number to the BUFFER[1]
+
+	printf("The BUFFER[1] is:%d\n",(int)BUFFER[1]);
+
+	// fill in fields of serv_addr
+	bzero((char *) &serv_addr, sizeof(serv_addr));	// sets all values to zero
+	serv_addr.sin_family = AF_INET;		// symbol constant for Internet domain
+
+	// copy to serv_addr.sin_addr.s_addr. Function memcpy could be used instead.
+	bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr, server->h_length);
+
+	serv_addr.sin_port = htons(portno);		// fill sin_port field
+
+	// establish connection to the server
+	if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0)
+		error("ERROR connecting");
+
+
+
+	while(1)
+
+	{
+
+
+		printf("\n");
+
+
+		/////////////////////For the button-pressed states///////////////////////////
+
+
+		fifo_0=read(fifo_0,&voltage,sizeof(voltage));//get the voltage information
+
+		fifo_1=read(fifo_1,&button_state,sizeof(button_state));//get the button pressed information
+
+		BUFFER[2]=0;//clear the button states
+
+		for (i=0;i<4;i++)
+		{
+			if(button_state[i]==1) //detect the button has been pressed
+			{
+				BUFFER[2]=i+1;
+
+		        //use the third bit to store the button state information
+
+				//for example if button 1 is pressed then the BUFFER[2]=1
+
+				//button 1 is equal to bit 0
+			}
+
+			else
+
+				BUFFER[2]=0;//if no button is pressed,then BUFFER[2]=0
+
+			button_state[i]=0;//clear the button-states
+		}
+
+		//printf("The buffer[2] we are going to send is:%f\n",BUFFER[2]);
+
+		if(BUFFER[2]!=0)
+
+		printf("The button %d in RTU %d is pressed.\n",(int)BUFFER[2],(int)BUFFER[1]);
+
+		else
+
+		printf("No button in RTU %d is pressed.\n",(int)BUFFER[1]);
+
+
+		//print the button states in each RTU
+
+		/////////////////////For the button-pressed states///////////////////////////
+
+
+		///////////////////////    For the ADC voltage     ///////////////////////////
+
+
+		real_voltage=5*((float)voltage/4096);
+
+		real_current=1*((float)voltage/4096);
+
+		real_power=real_voltage*real_current;
+
+		//printf("The real voltage:%f\n",real_voltage);
+
+		if(real_voltage>=3.965000)//let's make the overload voltage to be 3.965000 volts
+		{
+
+			//Events happened and send the events to the general RTU program
+
+			overload_voltage=real_voltage;
+
+			printf("The overload voltage in RUT %d is :%f V.\n",(int)BUFFER[1],overload_voltage);
+
+			printf("The current in RUT %d is :%f A.\n",(int)BUFFER[1],real_current);
+
+			printf("The power in RUT %d is :%f W.\n",(int)BUFFER[1],real_power);
+
+			BUFFER[0]=1;
+
+			//printf("The BUFFER[0] is :%f\n",BUFFER[0]);
+
+
+	////////////////////////////    For the ADC voltage     ///////////////////////////
+
+
+			n = write(sockfd,BUFFER,MSG_SIZE-1);
+
+            // send all events to the General program
+
+
+			//printf("The buffer we are going to send is:%d\n",BUFFER);
+
+			if (n < 0)
+				error("ERROR writing to socket");
+
+			//printf("The buffer we are going to send is:%d\n",BUFFER[0]);
+
+			n = read(sockfd,BUFFER,MSG_SIZE-1);	// recvfrom() could be used
+
+			//printf("The buffer received from the server is %d\n",BUFFER[0]);	// a message from the server
+
+			if (n < 0)
+				error("ERROR reading from socket");
+
+			//printf("The button number is :%f\n",BUFFER[0]);	// a message from the server
+
+		}
+
+		else
+
+		{
+			//Events happened and send the events to the general RTU program
+
+
+			printf("The normal voltage in RTU %d is :%f V.\n",(int)BUFFER[1],real_voltage);
+
+			printf("The current in RUT %d is :%f A.\n",(int)BUFFER[1],real_current);
+
+			printf("The power in RUT %d is :%f W.\n ",(int)BUFFER[1],real_power);
+
+			BUFFER[0]=0;
+
+			//printf("The BUFFER[0] is :%f\n",BUFFER[0]);
+
+			n = write(sockfd,BUFFER,MSG_SIZE-1);
+
+			//Send all events to the General program
+
+			if (n < 0)
+				error("ERROR writing to socket");
+
+
+			n = read(sockfd,BUFFER,MSG_SIZE-1);	// recvfrom() could be used
+
+
+			if (n < 0)
+				error("ERROR reading from socket");
+
+		}
+
+	}
+
+	close(sockfd);	// close socket
+
+
+
+	///////////////////////// For the TCP communication   ///////////////////////////////////
+
+
+	return 0;
+
+}
+
+
+
+
+
