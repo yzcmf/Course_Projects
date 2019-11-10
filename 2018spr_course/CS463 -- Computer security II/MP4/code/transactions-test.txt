@@ -1,0 +1,14 @@
+1 trans1 A 10 in
+1 trans1 B 10 out
+2 trans2 A 7 in
+2 trans2 B 3 in
+2 trans2 E 10 out
+3 trans3 C 5 in
+3 trans3 F 5 out
+4 trans4 B 1 in
+4 trans4 C 1 in
+4 trans4 D 1 in
+4 trans4 H 3 out
+5 trans5 F 1 in
+5 trans5 G 1 in
+5 trans5 C 2 out
