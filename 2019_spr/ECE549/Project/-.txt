@@ -1,0 +1,75 @@
+def encoder(image_input, latent_size, n_units=128, reuse=False, alpha=0.01, scope='encoder'):
+    with tf.variable_scope(scope, reuse=reuse):
+        # Hidden layer
+        #hidden = tf.layers.dense(image_input, n_units, activation=None)
+        # Leaky ReLU
+        #hidden = tf.maximum(hidden, alpha*hidden)
+        # ReLU
+        # h1 = tf.maximum(0.0, h1)
+        
+        # Logits and tanh output
+        #logits = tf.layers.dense(hidden, latent_size, activation=None)
+        #latents = tf.nn.tanh(logits)
+        encode_image = tf.reshape(image_input, shape=[-1,n_units,n_units,3])
+        encode_image = tf.layers.conv2d(encode_image,n_units*2,kernel_size=5, strides=2, padding='same')
+        encode_image = tf.layers.conv2d(encode_image,n_units*4,kernel_size=5, strides=2, padding='same')
+        encode_image = tf.layers.conv2d(encode_image,n_units*8,kernel_size=5, strides=2, padding='same')
+        encode_image = tf.layers.conv2d(encode_image,n_units*16,kernel_size=5, strides=2, padding='same')
+        encode_image = tf.contrib.layers.flatten(encode_image)
+        encode_image = tf.layers.dense(encode_image, n_units * 16, activation=None)
+        encode_image = tf.layers.dense(encode_image, n_units * 16 * 4 * 4, activation=None)
+        encode_image = tf.reshape(encode_image, shape=[-1,4,4,n_units * 16])
+        encode_image = tf.layers.conv2d_transpose(encode_image, n_units * 8 * 4, kernel_size=3, 
+                                                 padding='same', activation=tf.nn.leaky_relu)
+
+        return encode_image
+    
+def decoder(encoder_input, out_dim, n_units=128, reuse=False, alpha=0.01, scope='decoder'):
+    with tf.variable_scope(scope, reuse=reuse):
+        # Hidden layer
+        #hidden = tf.layers.dense(latents, n_units, activation=None)
+        # Leaky ReLU
+        #hidden = tf.maximum(hidden, alpha*hidden)
+        # ReLU
+        # h1 = tf.maximum(0.0, h1)
+        
+        # Logits and tanh output
+        #logits = tf.layers.dense(hidden, out_dim, activation=None)
+        #out = tf.nn.tanh(logits)
+        decode_image = tf.reshape(encoder_input, shape=[-1,8,8, n_units * 8])
+        decode_image = tf.layers.conv2d_transpose(decode_image, n_units * 4, kernel_size=3, 
+                                                 padding='same', activation=tf.nn.leaky_relu)
+        decode_image = tf.layers.conv2d_transpose(decode_image, n_units * 2, kernel_size=3, 
+                                                 padding='same', activation=tf.nn.leaky_relu)
+        decode_image = tf.layers.conv2d_transpose(decode_image, n_units, kernel_size=3, 
+                                                 padding='same', activation=tf.nn.leaky_relu)
+        decode_image = tf.layers.conv2d(decode_image, 3 ,kernel_size=5, strides=2, padding='same', activation=tf.nn.sigmoid)
+        decode_image = tf.contrib.layers.flatten(decode_image)
+        decode_image = tf.layers.dense(decode_image, out_dim, activation=None)
+        decode_image = tf.layers.dense(decode_image, n_units * n_units * 3, activation=tf.nn.tanh)
+        
+        return decode_image
+    
+def discriminator(image_input, n_units=128, reuse=False, alpha=0.01, scope='discriminator'):
+    with tf.variable_scope(scope, reuse=reuse):
+        # Hidden layer
+        #h1 = tf.layers.dense(inputs, n_units, activation=None)
+        # Leaky ReLU
+        #h1 = tf.maximum(alpha * h1, h1)
+        # ReLU
+        #h1 = tf.maximum(0.0, h1)
+        
+        discriminator = tf.reshape(image_input, shape=[-1,n_units,n_units,3])
+        discriminator = tf.layers.conv2d(discriminator,n_units,kernel_size=5, strides=2, padding='same')
+        discriminator = tf.layers.dropout(discriminator, rate=0.6)
+        discriminator = tf.layers.conv2d(discriminator,n_units,kernel_size=5, strides=1, padding='same')
+        discriminator = tf.layers.dropout(discriminator, rate=0.6)
+        discriminator = tf.layers.conv2d(discriminator,n_units,kernel_size=5, strides=1, padding='same')
+        discriminator = tf.layers.dropout(discriminator, rate=0.6)
+        discriminator = tf.contrib.layers.flatten(discriminator)
+        discriminator = tf.layers.dense(discriminator, n_units * 2, activation=tf.nn.leaky_relu)
+        
+        logits = tf.layers.dense(discriminator, 1, activation=None)
+        out = tf.sigmoid(logits)
+        
+        return out, logits
