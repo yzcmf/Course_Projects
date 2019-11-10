@@ -1,0 +1,13 @@
+1.The total unique IPs got blocked in the last 18 hours are 573 , and it can be found in fail2ban_ip_unique_total.txt
+2.The lists with the info/notice logs can be found in fail2ban.log
+
+Note: All the ip filtered and stored in fail2ban_ip_only.txt; 
+      All the ip occurred times are stored in  fail2ban_ip_unique_frequency.txt
+
+Extra findings from fail2ban_ip_unique_total.txt:
+
+Most occurred IP address is : 36.156.24.94 --- 8 times
+Second occurred IP address is:  36.156.24.99 --- 7 times
+21 IP address is more than 3 times 
+
+These data can help us determine any attacks which might be targeted to our machine

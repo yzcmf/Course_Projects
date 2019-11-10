@@ -1,0 +1,79 @@
+
+I got 8 binaries retrieved so far and it got increased rapidly.Their binaries names, the hash value, link to virustotal report, malware samples history are listed in the following. From those files, I learned that how fast the creation of the malware are. At the same time, the detection shows some softwares are good for detection while some softwares can't find the malware. Good ones like 360, McAfee etc, while the bad ones such as Babable etc	
+
+binaries name: 49e38bc384b99902d6dca4754c63edee  
+hash value: b0c40cce2d2fd0acbc27c2367ae8e1493e7a6d4511152fb387532acba67017cf
+link to virustotal report: https://www.virustotal.com/#/file/b0c40cce2d2fd0acbc27c2367ae8e1493e7a6d4511152fb387532acba67017cf/detection
+malware samples history: 
+Creation Time	2017-05-11 12:21:37
+First Submission	2018-03-11 22:06:02
+Last Submission	2019-02-16 03:54:07
+Last Analysis	2019-03-13 20:14:02
+
+
+binaries name: 66b0dd59a41033b539a6ad62a6f0fa3f  
+hash value: f3303727853659e5330296d47087480f742d5d7d2afea7aa9892389d1cfd2591
+link to virustotal report: https://www.virustotal.com/#/file/f3303727853659e5330296d47087480f742d5d7d2afea7aa9892389d1cfd2591/detection
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2018-01-29 01:41:41
+Last Submission	2019-01-09 06:20:06
+Last Analysis	2019-02-10 12:22:23
+
+binaries name: 996c2b2ca30180129c69352a3a3515e4  
+hash value:df6d5b29a97647bca44e2306069f7675ef992f591c8c761af99bbdc17cfa7692
+link to virustotal report:https://www.virustotal.com/#/file/df6d5b29a97647bca44e2306069f7675ef992f591c8c761af99bbdc17cfa7692/detection
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2017-05-30 09:29:03
+Last Submission	2019-03-11 03:38:58
+Last Analysis	2019-03-13 23:12:03
+
+binaries name: cf4f46336abeec03630297f846d17482
+hash value: f54fbfcb038af9a12d446f0150b97fef7a71ca02eec07c517f0ed00fdbea8185
+link to virustotal report:https://www.virustotal.com/#/file/f54fbfcb038af9a12d446f0150b97fef7a71ca02eec07c517f0ed00fdbea8185/details
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2017-05-24 14:54:47
+Last Submission	2019-02-25 03:47:44
+Last Analysis	2019-03-13 16:18:02
+
+binaries name: 5a579e20d6fe26579648c3961ef179ca  
+hash value:29833d862bafd53d685f2adbb00f0276b85dd9053691f02e347328ee988f8ad4
+link to virustotal report:https://www.virustotal.com/#/file/29833d862bafd53d685f2adbb00f0276b85dd9053691f02e347328ee988f8ad4/detection
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2017-07-30 10:14:47
+Last Submission	2019-02-13 18:27:06
+Last Analysis	2019-03-08 09:48:02
+
+
+binaries name: 81bf36d6f3da91a2eae177edb7c5788a 
+hash value: 89e029966c2633fa23608453ea500ef822789e61e34e500adc7cc171322d8e99
+link to virustotal report:https://www.virustotal.com/#/file/89e029966c2633fa23608453ea500ef822789e61e34e500adc7cc171322d8e99/detection
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2017-12-25 14:43:02
+Last Submission	2019-02-21 10:45:58
+Last Analysis	2019-02-21 10:45:58
+
+
+binaries name: a55b9addb2447db1882a3ae995a70151 
+hash value:cf5ddb5dedea0104a3fc464c822e6181a9dd9fa6e27e713c54af0eafb7c5faf0
+link to virustotal report:https://www.virustotal.com/#/file/cf5ddb5dedea0104a3fc464c822e6181a9dd9fa6e27e713c54af0eafb7c5faf0/detection
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2017-06-01 18:13:33
+Last Submission	2019-03-07 04:15:06
+Last Analysis	2019-03-13 22:30:02
+ 
+binaries name: efccc5f1740e8729eeb100562a3c2076
+hash value:e4cb5d81add863a07c70ccb2a90ea62dd90b5596f10288bbe7ff4a7be592fb0b
+link to virustotal report:https://www.virustotal.com/#/file/e4cb5d81add863a07c70ccb2a90ea62dd90b5596f10288bbe7ff4a7be592fb0b/detection
+malware samples history:
+Creation Time	2017-05-11 12:21:37
+First Submission	2017-06-06 17:16:39
+Last Submission	2019-02-01 23:25:55
+Last Analysis	2019-02-01 23:25:55
+
+

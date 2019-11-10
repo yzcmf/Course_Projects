@@ -1,0 +1,204 @@
+Last login: Tue Mar 12 01:54:15 on ttys002
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1032-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Mar 12 07:43:17 UTC 2019
+
+  System load:  0.0               Processes:           88
+  Usage of /:   16.8% of 7.69GB   Users logged in:     1
+  Memory usage: 18%               IP address for eth0: 172.31.26.253
+  Swap usage:   0%
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+7 packages can be updated.
+7 updates are security updates.
+
+
+*** System restart required ***
+Last login: Tue Mar 12 07:12:42 2019 from 76.191.25.71
+ubuntu@ip-172-31-26-253:~$ sudo -i
+root@ip-172-31-26-253:~# /etc/ssh/sshd_config
+-bash: /etc/ssh/sshd_config: Permission denied
+root@ip-172-31-26-253:~# vim /etc/ssh/sshd_config
+root@ip-172-31-26-253:~# sudo service ssh restart
+root@ip-172-31-26-253:~# sudo passwd root
+Enter new UNIX password: 
+Retype new UNIX password: 
+Sorry, passwords do not match
+passwd: Authentication token manipulation error
+passwd: password unchanged
+root@ip-172-31-26-253:~# sudo passwd root
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+root@ip-172-31-26-253:~# ipconfig
+
+Command 'ipconfig' not found, did you mean:
+
+  command 'iwconfig' from deb wireless-tools
+  command 'iconfig' from deb ipmiutil
+  command 'ifconfig' from deb net-tools
+
+Try: apt install <deb name>
+
+root@ip-172-31-26-253:~# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.26.253  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::4f1:1eff:febe:e34e  prefixlen 64  scopeid 0x20<link>
+        ether 06:f1:1e:be:e3:4e  txqueuelen 1000  (Ethernet)
+        RX packets 40983  bytes 46467933 (46.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 13034  bytes 1515913 (1.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 378  bytes 35763 (35.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 378  bytes 35763 (35.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@ip-172-31-26-253:~# sudo passwd root
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+root@ip-172-31-26-253:~# exit
+logout
+ubuntu@ip-172-31-26-253:~$ sudo -i
+root@ip-172-31-26-253:~# passwd
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+root@ip-172-31-26-253:~# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.26.253  netmask 255.255.240.0  broadcast 172.31.31.255
+        inet6 fe80::4f1:1eff:febe:e34e  prefixlen 64  scopeid 0x20<link>
+        ether 06:f1:1e:be:e3:4e  txqueuelen 1000  (Ethernet)
+        RX packets 41243  bytes 46491027 (46.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 13237  bytes 1553895 (1.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 408  bytes 38840 (38.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 408  bytes 38840 (38.8 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@ip-172-31-26-253:~# packet_write_wait: Connection to 18.191.143.158 port 22: Broken pipe
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-18-191-143-158.us-east-2.compute.amazonaws.com port 22: Connection refused
+(base) UserdeMacBook-Air:Downloads user$ ssh -i "zyx1.pem" ubuntu@ec2-18-191-143-158.us-east-2.compute.amazonaws.com
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1032-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Mar 12 17:38:56 UTC 2019
+
+  System load:  0.0               Processes:           86
+  Usage of /:   18.2% of 7.69GB   Users logged in:     0
+  Memory usage: 18%               IP address for eth0: 172.31.26.253
+  Swap usage:   0%
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+7 packages can be updated.
+7 updates are security updates.
+
+
+*** System restart required ***
+Last login: Tue Mar 12 07:53:02 2019 from 76.191.25.71
+ubuntu@ip-172-31-26-253:~$ vim /var/log/fail2ban.log
+ubuntu@ip-172-31-26-253:~$ vim /var/log/fail2ban.log
+ubuntu@ip-172-31-26-253:~$ vim /var/log/fail2ban.log
+
+2019-03-12 20:09:38,473 fail2ban.filter         [9990]: INFO    [sshd] Found 106.13.45.241 - 2019-03-12 20:09:38
+2019-03-12 20:09:38,861 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 106.13.45.241
+2019-03-12 20:09:46,881 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 202.69.191.55
+2019-03-12 20:11:04,995 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 58.87.124.200
+2019-03-12 20:11:09,876 fail2ban.filter         [9990]: INFO    [sshd] Found 36.156.24.99 - 2019-03-12 20:11:09
+2019-03-12 20:11:11,890 fail2ban.filter         [9990]: INFO    [sshd] Found 36.156.24.99 - 2019-03-12 20:11:11
+2019-03-12 20:11:26,110 fail2ban.filter         [9990]: INFO    [sshd] Found 36.156.24.99 - 2019-03-12 20:11:26
+2019-03-12 20:11:26,232 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 36.156.24.99
+2019-03-12 20:11:28,815 fail2ban.filter         [9990]: INFO    [sshd] Found 36.156.24.99 - 2019-03-12 20:11:28
+2019-03-12 20:12:50,684 fail2ban.filter         [9990]: INFO    [sshd] Found 125.65.42.192 - 2019-03-12 20:12:50
+2019-03-12 20:12:52,562 fail2ban.filter         [9990]: INFO    [sshd] Found 125.65.42.192 - 2019-03-12 20:12:52
+2019-03-12 20:12:58,366 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 178.33.228.67
+2019-03-12 20:12:59,249 fail2ban.filter         [9990]: INFO    [sshd] Found 125.65.42.192 - 2019-03-12 20:12:59
+2019-03-12 20:12:59,577 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 125.65.42.192
+2019-03-12 20:13:01,589 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 45.55.188.133
+2019-03-12 20:13:01,954 fail2ban.filter         [9990]: INFO    [sshd] Found 125.65.42.192 - 2019-03-12 20:13:01
+2019-03-12 20:13:17,542 fail2ban.filter         [9990]: INFO    [sshd] Found 186.248.136.74 - 2019-03-12 20:13:17
+2019-03-12 20:13:17,546 fail2ban.filter         [9990]: INFO    [sshd] Found 186.248.136.74 - 2019-03-12 20:13:17
+2019-03-12 20:13:20,251 fail2ban.filter         [9990]: INFO    [sshd] Found 186.248.136.74 - 2019-03-12 20:13:19
+2019-03-12 20:13:20,824 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 186.248.136.74
+2019-03-12 20:14:00,887 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 104.131.75.97
+2019-03-12 20:14:15,071 fail2ban.filter         [9990]: INFO    [sshd] Found 189.69.110.238 - 2019-03-12 20:14:15
+2019-03-12 20:14:15,075 fail2ban.filter         [9990]: INFO    [sshd] Found 189.69.110.238 - 2019-03-12 20:14:15
+2019-03-12 20:14:16,678 fail2ban.filter         [9990]: INFO    [sshd] Found 189.69.110.238 - 2019-03-12 20:14:16
+2019-03-12 20:14:16,917 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 189.69.110.238
+2019-03-12 20:14:18,929 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 87.98.171.226
+2019-03-12 20:14:40,968 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 61.184.247.4
+2019-03-12 20:14:57,946 fail2ban.filter         [9990]: INFO    [sshd] Found 14.225.225.153 - 2019-03-12 20:14:57
+2019-03-12 20:14:57,947 fail2ban.filter         [9990]: INFO    [sshd] Found 14.225.225.153 - 2019-03-12 20:14:57
+2019-03-12 20:14:58,711 fail2ban.filter         [9990]: INFO    [sshd] Found 14.225.225.153 - 2019-03-12 20:14:58
+2019-03-12 20:14:59,002 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 14.225.225.153
+2019-03-12 20:15:35,059 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 122.226.181.165
+2019-03-12 20:16:10,582 fail2ban.filter         [9990]: INFO    [sshd] Found 159.89.182.47 - 2019-03-12 20:16:10
+2019-03-12 20:16:10,586 fail2ban.filter         [9990]: INFO    [sshd] Found 159.89.182.47 - 2019-03-12 20:16:10
+2019-03-12 20:16:12,189 fail2ban.filter         [9990]: INFO    [sshd] Found 159.89.182.47 - 2019-03-12 20:16:11
+2019-03-12 20:16:12,319 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 159.89.182.47
+2019-03-12 20:16:14,210 fail2ban.filter         [9990]: INFO    [sshd] Found 217.182.205.109 - 2019-03-12 20:16:14
+2019-03-12 20:16:16,914 fail2ban.filter         [9990]: INFO    [sshd] Found 217.182.205.109 - 2019-03-12 20:16:16
+2019-03-12 20:16:40,366 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 60.30.105.63
+2019-03-12 20:17:05,325 fail2ban.filter         [9990]: INFO    [sshd] Found 14.116.217.18 - 2019-03-12 20:17:05
+2019-03-12 20:17:05,329 fail2ban.filter         [9990]: INFO    [sshd] Found 14.116.217.18 - 2019-03-12 20:17:05
+2019-03-12 20:17:07,217 fail2ban.filter         [9990]: INFO    [sshd] Found 14.116.217.18 - 2019-03-12 20:17:07
+2019-03-12 20:17:07,613 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 14.116.217.18
+2019-03-12 20:17:19,638 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 41.76.149.212
+2019-03-12 20:18:01,704 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 178.62.204.176
+2019-03-12 20:18:15,732 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 150.109.196.143
+2019-03-12 20:19:39,855 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 106.13.45.241
+2019-03-12 20:21:26,009 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 36.156.24.99
+2019-03-12 20:22:19,326 fail2ban.filter         [9990]: INFO    [sshd] Found 217.182.205.109 - 2019-03-12 20:22:19
+2019-03-12 20:22:19,327 fail2ban.filter         [9990]: INFO    [sshd] Found 217.182.205.109 - 2019-03-12 20:22:19
+2019-03-12 20:22:20,089 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 217.182.205.109
+2019-03-12 20:22:22,033 fail2ban.filter         [9990]: INFO    [sshd] Found 217.182.205.109 - 2019-03-12 20:22:21
+2019-03-12 20:22:51,156 fail2ban.filter         [9990]: INFO    [sshd] Found 54.36.189.214 - 2019-03-12 20:22:51
+2019-03-12 20:22:51,159 fail2ban.filter         [9990]: INFO    [sshd] Found 54.36.189.214 - 2019-03-12 20:22:51
+2019-03-12 20:22:53,864 fail2ban.filter         [9990]: INFO    [sshd] Found 54.36.189.214 - 2019-03-12 20:22:53
+2019-03-12 20:22:54,144 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 54.36.189.214
+2019-03-12 20:23:00,161 fail2ban.actions        [9990]: NOTICE  [sshd] Unban 125.65.42.192
+2019-03-12 20:23:01,282 fail2ban.filter         [9990]: INFO    [sshd] Found 51.38.152.200 - 2019-03-12 20:23:01
+2019-03-12 20:23:01,286 fail2ban.filter         [9990]: INFO    [sshd] Found 51.38.152.200 - 2019-03-12 20:23:01
+2019-03-12 20:23:03,991 fail2ban.filter         [9990]: INFO    [sshd] Found 51.38.152.200 - 2019-03-12 20:23:03
+2019-03-12 20:23:04,175 fail2ban.actions        [9990]: NOTICE  [sshd] Ban 51.38.152.200
+                                                                                                                                                                                        2842,1        Bot

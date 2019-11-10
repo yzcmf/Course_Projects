@@ -1,0 +1,24 @@
+1.The total top 10 combinations from the last 18 hours are:
+
+ 160 [nproc/nproc]
+  14 [admin/changeme]
+  14 [admin/admin]
+  13 [admin/pfsense]
+  13 [admin/1234]
+  10 [admin/1111]
+   9 [admin/password]
+   9 [admin/admin123]
+   9 [admin/12345]
+   8 [admin/aerohive]
+
+it can be found in cowrie_account_password_times.txt
+
+
+
+2.The lists with the info/notice logs can be found in cowrie_org.txt
+
+Note: All the ip filtered and stored in cowrie_account_password.txt;
+      All the ip occurred times are stored in cowrie_account_password_times.txt;
+
+
+After knowing the top 10 combinations, we could determine the most weak ones. Thus, we avoid the set the password in that way. The top one is most distinguished which is occurred 160 times (nproc/nproc).
