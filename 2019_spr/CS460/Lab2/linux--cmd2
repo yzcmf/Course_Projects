@@ -1,0 +1,34 @@
+adduser
+deluser
+addgroup
+delgroup
+groups
+chgrps
+=> usermod -a -G unseen gus (add user to group)=> getent group unseen (show group members)
+compgen -u (show all the users)
+compgen -g (show all the groups)
+setfacl -m g:groupname:rwx /path/to/group (set all the group members private read/write/excute and block other group members)
+
+:/etc/group -- (groups location) 
+:/home  -- (users location)
+
+
+users passwords:
+Lab02-staff-test!
+
+gus   unseen
+ellen unseen && nightwatch
+
+carol nightwatch
+dave  nightwatch
+alice assassin
+bob  assassin
+
+boss Administrators -- windows / adm & sudo --- Linux
+
+boss adm && sudo => usermod -a -G adm boss / usermod -a -G sudo boss
+
+nightwatch
+assassin
+unseen
+
