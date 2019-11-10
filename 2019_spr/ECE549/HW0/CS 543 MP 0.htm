@@ -1,0 +1,134 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CS 543 MP 0</title>
+</head>
+<body bgcolor="white" style="">
+<table width="800">
+<tbody><tr>
+<td>
+<h2>CS 543 Spring 2019</h2> 
+<h2>MP 0: Demosaicing</h2>
+<h3>Due date: January 25, 11:59:59 PM</h3>
+
+<p>The goal of the assignment is to get started with image processing in Python by implementing a very 
+simple demosaicing algorithm. Please <b>download the starter code and data <a href="assignment0/MP0.zip">here</a></b>. You are provided some images and an ipython notebook for getting started.
+
+
+<p>
+The "mosaic" image was created by taking the original color image and keeping only one color component
+for each pixel, according to the standard Bayer pattern:<br>
+<br>
+
+<img src="assignment0/bayer.jpg" width=200><br>
+<small><a href="https://www.researchgate.net/figure/Color-online-Bayer-filter-array_fig1_311861609">Source</a></small><br>
+
+<br>
+So, once you read the "mosaic" image into a matrix, entry (1,1) will be the value of the "red" component
+for pixel (1,1), entry (1,2) will be "green", etc.
+
+<h3>Part 1: Linear Interpolation</h3>
+
+Implement a very simple <em>linear interpolation</em> approach to demosaicing: for each pixel, fill in
+the two missing channels by averaging either the four or the two neighboring known channel values:<br><br>
+
+<img src="assignment0/interpolation.jpg">
+
+<p>
+<b>Avoid using loops!</b> Instead, use the <tt> scipy.ndimage.correlate </tt> or <tt> scipy.ndimage.convolve </tt> function .
+(You can use any other function which has similar functionality from any other module).
+
+</p><p>
+The above method, being very simple, does not work perfectly. You can see where it makes mistakes by
+computing a map of squared differences (summed over the three color components) between the original 
+and reconstructed color value for each pixel. Compute such a map and display it using the <tt>skimage.io.imshow</tt> or <tt>cv2.imshow</tt> or <tt>matplotlib.pyplot.imshow</tt> . In addition, compute the average and maximum per-pixel errors for the image.
+Finally, show a close-up of some patch of the reconstructed image where
+the artifacts are particularly apparent and explain the cause of these artifacts.
+
+You need to implement the <code>get_solution_image</code> function and the <code>compute_errors</code> function for this part in the ipython notebook provided to you.
+
+
+
+</p><h3>Part 2: The Freeman Method</h3>
+
+In 1985, <a href="http://people.csail.mit.edu/billf/">Bill Freeman</a> proposed an 
+<a href="http://www.freepatentsonline.com/4663655.html">improvement</a> 
+
+of the simple bilinear interpolation approach.
+Since the G channel is sampled at a higher rate than the R and B channels, one might expect
+interpolation to work better for G values. Then it would make sense to use the interpolated
+G channel to modify the interpolated R and B channels. 
+The improved algorithm begins with linear interpolation applied separately
+to each channel, just as you have already done above. The estimated G channel is not changed,
+but R and B channels are modified as follows. First, compute the difference images R-G
+and B-G between the respective interpolated channels. Mosaicing artifacts tend to show up
+as small "splotches" in these images. To eliminate the "splotches", apply 
+<em>median filtering</em> (<tt>scipy.signal.medfilt2d</tt> command in Python) to the R-G and B-G images.
+Finally, create the modified R and B channels by adding the G channel to the respective
+difference images.
+
+<p>
+Implement the above algorithm and visualize the quality of the results in the same way as for
+Part 1 by displaying the error image and computing average and maximum error. Compare the output
+to that of Part 1. Are there visible improvements (especially in the close-up patch selected
+in Part 1)?
+
+You need to implement the <code>get_freeman_solution_image</code> function function for this part in the ipython notebook provided to you.
+
+</p><p>
+<b>Hint:</b> Implementing this method should take you about two lines of code.
+
+</p><h3>Part 3: Processing two images of your choice</h3>
+<p>
+<b>Choose two additional color images</b>, create a fake "mosaic" by removing the two color
+channels according to the Bayer pattern and apply the demosaicing algorithm to them. 
+
+Try to find images for which demosaicing "breaks" particularly badly.
+
+You need to implement the <code>get_mosaic_image</code> function function for this part in the ipython notebook provided to you.
+
+</p><h3>For Bonus Points</h3>
+Here are some optional ideas for digging a little deeper:
+<ul>
+<li>
+Propose (or look up online) additional improvements to make demosaicing work better.
+Implement some improvements and compare the results.
+</li></ul>
+
+<h3>IPython</h3>
+
+
+<p>The assignment is given to you in the <code>MP0.ipynb file.</code> If you are using a local machine, ensure
+    that ipython is installed (<a href="https://ipython.org/install.html">https://ipython.org/install.html</a>). You may
+    then navigate the assignment directory in terminal and start a local ipython server using the <code>jupyter notebook</code>
+    command.</p>
+
+
+<h3>Submission Instructions (more details TBA):</h3>
+
+
+You must upload three files to <b><a href="https://compass2g.illinois.edu/">Compass 2g</a></b>.
+<ol>
+<li>All of your code (python files and ipynb file) <b>in a single ZIP file</b>. The filename should be <b>netid_mp0_code.zip</b>.</li>
+<li>Your ipython notebook with output cells converted to <b>PDF format</b>. The filename should be <b>netid_mp0_output.pdf</b>.</li>
+<li>A brief report in PDF format. The filename should be <b>netid_mp0_report.pdf</b>. We will provide the template shortly on piazza.</li>
+</ol>
+<i>Don't forget to hit "Submit" after uploading your files, otherwise we will not receive your submission.</i>
+
+
+
+<p>Please refer to <a href="http://slazebni.cs.illinois.edu/spring19/policies.html">course policies</a> on collaborations, late submission,
+    and extension requests.</p>
+
+<b> Useful Python Links </b>
+<ol>
+	<li><a href="http://scikit-image.org/docs/dev/api/skimage.io.html">skimage io</a></li>
+	<li><a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html">cv2 io</a></li>
+	<li><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html">matplotlib api</a></li>
+</ol>
+
+</li></td></tr></tbody></table>
+
+
+
+
+</body></html>
