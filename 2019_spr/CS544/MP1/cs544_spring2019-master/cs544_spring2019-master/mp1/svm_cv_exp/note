@@ -1,0 +1,10 @@
+1. For svm examples first using skirtlearn, files : 
+   support-vector-machine-on-iris-flower-dataset.py 
+   and support-vector-machine-on-iris-flower-dataset.ipynb
+   input data location:
+   input/IRIS.csv
+2. For svm examples first not using skirtlearn, files : 
+   svm_opt.ipynb
+   input data location:
+   Iris_dataset/Iris.csv
+   

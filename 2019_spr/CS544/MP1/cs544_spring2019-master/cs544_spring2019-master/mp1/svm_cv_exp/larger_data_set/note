@@ -1,0 +1,10 @@
+This file is for the data_sets great than 1000
+1.Form https://www.kaggle.com/pierra/credit-card-dataset-svm-classification/data; 
+  Credit card dataset: SVM Classification
+  File name : bank-additional-full.csv
+2.From https://www.kaggle.com/pliptor/r-svm-bizarre-sigmoid-kernel/data
+  Decision boundaries for the three classes of points cannot be straight lines. 
+  compare the behavior of a linear classifier and a neural network classifier. 
+  Filename: A Visual and Intuitive Train-Test Pattern/test.csv
+  A Visual and Intuitive Train-Test Pattern/train.csv
+
