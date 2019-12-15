@@ -1,1 +1,1 @@
-Trainditional Machine Learning Methods 3 features to predict multi-class (600 - 1100) 
+Trainditional Machine Learning Methods: multi-class(3) predicts multi-labels(~1000) 
