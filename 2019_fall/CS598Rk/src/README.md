@@ -1,6 +1,6 @@
 src code expalination
 
-This is a task for mutli-class to multi-labels. At first, I used Linear Regression and it turns out no accuracy at all for this irregular dataset. Then I used other ways, especially fro multi-labels preditions. I choose to use Decision-Tree, KNN, SVM and Naive Bayes classifier. I find KNN would mostly like to be a good fit for the dataset.
+This is a task for mutli-class to multi-labels. At first, I used Linear Regression and it turns out no accuracy at all for this irregular dataset. Then I used other ways, especially for multi-labels preditions. I choose to use Decision-Tree, KNN, SVM and Naive Bayes classifier. I find KNN would mostly like to be a good fit for the dataset.
 
 I first import panda, numpy and pyplot. I use panda to read csv file and do some data processing tasks. I get the final processed data which contains 3 class and we need to use them to predict about 1000 labels. One problem here is the input data is based on int and utf-8 and so that I used 2 md5 hash functions to cast all of them into float64.  
 
