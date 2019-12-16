@@ -8,6 +8,6 @@ After getting the orginal_data, I build KNN model by using KNeighborsClassifier.
 
 After the KNN model, I used confused matrix and count the whole positive predictions , and obtained the finally accuracy to be 99.1% (72912 73567), while the confused matrix accuracy is 98.5% (837 850)
 
-For the plot, due to the large size, we have to do the random sampling. I choose the random sampling 100,500,1000,2000 and have the finally results in the pretty-results folder. You could find when sample is 100 or 500, there are some inaccurate results and when the sample is 1000 or 2000, you could figure out the inaccurate results. However, we know there must be some inaccurate results there.
+For the plot, due to the large size, we have to do the random sampling. I choose the random sampling 100,500,1000,2000 and have the finally results in the pretty-results folder. You could find when sample is 100 or 500, there are some inaccurate results and when the sample is 1000 or 2000, you couldn't figure out the inaccurate results, although we know there must be some inaccurate results there.
 
 In the problem, I believe we could use Deep Learning methods and build deep networks such as CNN or RNN. I worry about its time cost here. In our case, there are only 3 class and therefore, the traditional machine learning methods are good enough to finish this job with a lower time cost.
