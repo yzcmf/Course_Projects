@@ -66,6 +66,6 @@
     "semantic-ui-css": "^2.2.14",
     "semantic-ui-icon": "^2.2.14",
     "semantic-ui-react": "^0.76.0",
-    "validator": "^9.4.1"
+    "validator": "^13.7.0"
   }
 }
